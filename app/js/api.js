@@ -1,1 +1,1 @@
-// API handled by app.js demo mode
+// Handled by app.js
