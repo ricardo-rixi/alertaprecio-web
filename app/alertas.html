@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alertas — AlertaPrecio MX</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-logo">AlertaPrecio</div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">📊 Overview</a>
+        <a href="productos.html" class="nav-item">📦 Productos</a>
+        <a href="alertas.html" class="nav-item active">🔔 Alertas</a>
+        <a href="config.html" class="nav-item">⚙️ Config</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="plan-badge-sidebar" id="plan-badge">Plan: Starter</span>
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <h1>Alertas</h1>
+        <div class="topbar-actions">
+          <button class="btn" id="mark-all-read">Marcar todas leidas</button>
+        </div>
+      </header>
+      <div class="content-area">
+        <div class="alerts-timeline" id="alerts-list">
+          <div class="empty-state">Cargando alertas...</div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

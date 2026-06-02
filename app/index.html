@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — AlertaPrecio MX</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-logo">AlertaPrecio</div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item active">📊 Overview</a>
+        <a href="productos.html" class="nav-item">📦 Productos</a>
+        <a href="alertas.html" class="nav-item">🔔 Alertas</a>
+        <a href="config.html" class="nav-item">⚙️ Config</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="plan-badge-sidebar">Plan: Starter</span>
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <h1>Dashboard</h1>
+        <div class="user-menu" id="user-menu">
+          <span id="user-name">Usuario</span>
+          <button class="btn btn-sm" id="logout-btn" style="margin-left:0.5rem">Salir</button>
+        </div>
+      </header>
+      <div class="content-area">
+        <!-- Onboarding Banner -->
+        <div class="onboarding-banner hidden" id="onboarding-banner">
+          <div class="onboarding-step">
+            <span class="step-num">1</span> Agrega tus productos
+          </div>
+          <div class="onboarding-arrow">→</div>
+          <div class="onboarding-step">
+            <span class="step-num">2</span> Configura alertas
+          </div>
+          <div class="onboarding-arrow">→</div>
+          <div class="onboarding-step">
+            <span class="step-num">3</span> Recibe notificaciones
+          </div>
+          <button class="btn btn-primary btn-sm" id="start-onboarding">Comenzar</button>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-label">Productos Monitoreados</div>
+            <div class="card-value" id="products-count"><span class="loading-inline"></span></div>
+          </div>
+          <div class="card">
+            <div class="card-label">Alertas Hoy</div>
+            <div class="card-value" id="alerts-today"><span class="loading-inline"></span></div>
+          </div>
+          <div class="card">
+            <div class="card-label">Cambio Promedio</div>
+            <div class="card-value" id="avg-change"><span class="loading-inline"></span></div>
+          </div>
+          <div class="card">
+            <div class="card-label">Proximo Monitoreo</div>
+            <div class="card-value" id="next-scan">~60 min</div>
+          </div>
+        </div>
+
+        <!-- Price alerts summary -->
+        <div class="section-header">
+          <h2>Alertas Recientes</h2>
+          <a href="alertas.html" class="btn btn-sm">Ver todas</a>
+        </div>
+        <div id="recent-alerts" style="margin-bottom:1.5rem">
+          <div class="card" style="text-align:center; color:var(--text-muted)">Cargando alertas...</div>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="trendChart"></canvas>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
