@@ -3,170 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login — AlertaPrecio MX</title>
+  <title>Dashboard — AlertaPrecio MX</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-    .login-box {
-      background: var(--bg-card);
-      padding: 2.5rem;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      width: 100%;
-      max-width: 420px;
-    }
-    .login-box h1 { text-align: center; margin-bottom: 0.5rem; }
-    .login-box .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 2rem; font-size: 0.9rem; }
-    .demo-credentials {
-      background: rgba(37,99,235,0.1);
-      border: 1px solid rgba(37,99,235,0.2);
-      border-radius: 8px;
-      padding: 1rem;
-      margin: 1.5rem 0;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-    .demo-credentials code { color: var(--primary); background: none; }
+    .login-box { background: var(--bg-card); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border); width: 100%; max-width: 440px; text-align: center; }
+    .login-box h1 { color: var(--accent); margin-bottom: 0.3rem; }
+    .login-box .subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.9rem; }
+    .demo-card { background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2); border-radius: 12px; padding: 1.2rem; margin: 1.5rem 0; text-align: left; }
+    .demo-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 0.95rem; }
+    .demo-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; }
+    .demo-row:last-child { border: none; }
+    .demo-row .plan { color: var(--accent); font-weight: 600; font-size: 0.75rem; }
   </style>
 </head>
 <body>
   <div class="login-box">
     <h1>AlertaPrecio</h1>
-    <p class="subtitle">Monitoreo inteligente de precios</p>
-    
-    <form id="login-form">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="correo@ejemplo.com" required autofocus>
-      </div>
-      <div class="form-group">
-        <label for="password">Contrasena</label>
-        <input type="password" id="password" placeholder="••••••••" required>
-      </div>
-      <div id="login-error" class="hidden" style="color:var(--danger); margin-bottom:1rem; font-size:0.85rem"></div>
-      <button type="submit" class="btn btn-primary" style="width:100%">Iniciar Sesion</button>
-    </form>
+    <p class="subtitle">Monitoreo inteligente de precios para e-commerce</p>
 
-    <div class="demo-credentials">
-      <strong>Demo:</strong><br>
-      <code>demo@alertaprecio.mx</code> / <code>demo1234</code> (Pro)<br>
-      <code>starter@alertaprecio.mx</code> / <code>starter123</code> (Starter)
+    <div class="demo-card">
+      <h3>Demo — Dashboard</h3>
+      <div class="demo-row"><span>Marco Tienda Oficial</span><span class="plan">PRO</span></div>
+      <div class="demo-row"><span>Ana Seller Digital</span><span class="plan">STARTER</span></div>
+      <div style="margin-top:0.8rem">
+        <button class="btn btn-primary" style="width:100%" onclick="loginAs('pro')">Entrar como Pro (8 productos)</button>
+        <button class="btn btn-outline" style="width:100%; margin-top:0.5rem" onclick="loginAs('starter')">Entrar como Starter (4 productos)</button>
+      </div>
     </div>
 
-    <p style="text-align:center; margin-top:1rem; font-size:0.85rem; color:var(--text-muted)">
-      No tienes cuenta? <a href="#" id="show-register" style="color:var(--primary)">Prueba gratis 14 dias</a>
-    </p>
-
-    <!-- Register form (hidden by default) -->
-    <form id="register-form" class="hidden">
-      <div class="form-group">
-        <label for="reg-name">Nombre</label>
-        <input type="text" id="reg-name" placeholder="Tu nombre o empresa" required>
-      </div>
-      <div class="form-group">
-        <label for="reg-email">Email</label>
-        <input type="email" id="reg-email" placeholder="correo@ejemplo.com" required>
-      </div>
-      <div class="form-group">
-        <label for="reg-password">Contrasena</label>
-        <input type="password" id="reg-password" placeholder="Minimo 6 caracteres" required minlength="6">
-      </div>
-      <div class="form-group">
-        <label for="reg-whatsapp">WhatsApp (opcional)</label>
-        <input type="tel" id="reg-whatsapp" placeholder="+525512345678">
-      </div>
-      <div id="reg-error" class="hidden" style="color:var(--danger); margin-bottom:1rem; font-size:0.85rem"></div>
-      <div id="reg-success" class="hidden" style="color:var(--success); margin-bottom:1rem; font-size:0.85rem"></div>
-      <button type="submit" class="btn btn-primary" style="width:100%">Comenzar Prueba Gratis</button>
-    </form>
-    <p id="back-to-login" class="hidden" style="text-align:center; margin-top:1rem; font-size:0.85rem">
-      <a href="#" id="show-login" style="color:var(--primary)">← Volver al login</a>
+    <p style="font-size:0.75rem; color:var(--text-muted); margin-top:1rem">
+      Demo estatico — los datos son de muestra.<br>
+      Version completa con backend en <a href="https://github.com/ricardo-rixi/alertaprecio-backend" style="color:var(--primary)">alertaprecio-backend</a>
     </p>
   </div>
 
   <script>
-  const API_BASE = '/api';
-
-  async function apiPost(path, body) {
-    try {
-      const res = await fetch(API_BASE + path, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.error || 'Error ' + res.status);
-      }
-      return res.json();
-    } catch(e) {
-      return { error: e.message };
-    }
-  }
-
-  // Toggle login/register
-  document.getElementById('show-register').addEventListener('click', e => {
-    e.preventDefault();
-    document.getElementById('login-form').classList.add('hidden');
-    document.getElementById('register-form').classList.remove('hidden');
-    document.getElementById('back-to-login').classList.remove('hidden');
-    document.querySelector('.demo-credentials').classList.add('hidden');
-  });
-
-  document.getElementById('show-login').addEventListener('click', e => {
-    e.preventDefault();
-    document.getElementById('login-form').classList.remove('hidden');
-    document.getElementById('register-form').classList.add('hidden');
-    document.getElementById('back-to-login').classList.add('hidden');
-    document.querySelector('.demo-credentials').classList.remove('hidden');
-  });
-
-  // Login
-  document.getElementById('login-form').addEventListener('submit', async e => {
-    e.preventDefault();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
-    const errEl = document.getElementById('login-error');
-
-    const result = await apiPost('/auth/login', { email, password });
-    if (result.error) {
-      errEl.textContent = result.error;
-      errEl.classList.remove('hidden');
-      return;
-    }
-
-    localStorage.setItem('alertaprecio_token', result.token);
-    localStorage.setItem('alertaprecio_user', JSON.stringify(result.user));
+  function loginAs(plan) {
+    localStorage.setItem('alertaprecio_token', 'demo_token_' + plan);
+    localStorage.setItem('alertaprecio_user', JSON.stringify({
+      id: plan === 'pro' ? 1 : 2,
+      email: plan + '@alertaprecio.mx',
+      name: plan === 'pro' ? 'Marco Tienda Oficial' : 'Ana Seller Digital',
+      plan: plan
+    }));
     window.location.href = 'index.html';
-  });
-
-  // Register
-  document.getElementById('register-form').addEventListener('submit', async e => {
-    e.preventDefault();
-    const errEl = document.getElementById('reg-error');
-    const successEl = document.getElementById('reg-success');
-    errEl.classList.add('hidden');
-    successEl.classList.add('hidden');
-
-    const result = await apiPost('/auth/register', {
-      name: document.getElementById('reg-name').value.trim(),
-      email: document.getElementById('reg-email').value.trim(),
-      password: document.getElementById('reg-password').value,
-      whatsapp: document.getElementById('reg-whatsapp').value.trim() || null,
-    });
-
-    if (result.error) {
-      errEl.textContent = result.error;
-      errEl.classList.remove('hidden');
-      return;
-    }
-
-    successEl.textContent = 'Cuenta creada! Redirigiendo al dashboard...';
-    successEl.classList.remove('hidden');
-    localStorage.setItem('alertaprecio_token', result.token);
-    localStorage.setItem('alertaprecio_user', JSON.stringify(result.user));
-    setTimeout(() => { window.location.href = 'index.html'; }, 1500);
-  });
+  }
   </script>
 </body>
 </html>
