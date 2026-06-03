@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM — AlertaPrecio MX</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .pipeline-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; margin-bottom: 1.5rem; }
+    .pipeline-col { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 0.8rem; min-height: 120px; }
+    .pipeline-col h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 0.5rem; text-align: center; }
+    .pipeline-col .count { font-size: 1.5rem; font-weight: 800; text-align: center; color: var(--accent); margin-bottom: 0.3rem; }
+    .lead-card { background: rgba(255,255,255,0.03); border-radius: 6px; padding: 0.5rem; margin-bottom: 0.3rem; font-size: 0.75rem; cursor: pointer; border-left: 3px solid var(--primary); }
+    .lead-card:hover { background: rgba(255,255,255,0.06); }
+    .lead-card .name { font-weight: 600; }
+    .lead-card .meta { color: var(--text-muted); font-size: 0.68rem; }
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+    .stat-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; text-align: center; }
+    .stat-box .val { font-size: 1.8rem; font-weight: 800; }
+    .stat-box .lbl { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; margin-top: 0.3rem; }
+    .followup-alert { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 8px; padding: 0.8rem 1rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .followup-alert .info { font-size: 0.85rem; }
+    .task-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    .task-row:last-child { border: none; }
+    .task-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 0.5rem; }
+    .task-dot.urgent { background: var(--danger); }
+    .task-dot.normal { background: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-logo">AlertaPrecio</div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">📊 Overview</a>
+        <a href="productos.html" class="nav-item">📦 Productos</a>
+        <a href="alertas.html" class="nav-item">🔔 Alertas</a>
+        <a href="config.html" class="nav-item">⚙️ Config</a>
+        <a href="crm.html" class="nav-item active">📋 CRM</a>
+      </nav>
+      <div class="sidebar-footer"><span class="plan-badge-sidebar">CRM Interno</span></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <h1>CRM Interno</h1>
+        <div><span class="status-dot" style="color:var(--success)">●</span> Pipeline Activo</div>
+      </header>
+      <div class="content-area">
+
+        <div class="stats-row">
+          <div class="stat-box"><div class="val" style="color:var(--accent)">47</div><div class="lbl">Total Leads</div></div>
+          <div class="stat-box"><div class="val" style="color:var(--primary)">28</div><div class="lbl">Activos</div></div>
+          <div class="stat-box"><div class="val" style="color:var(--success)">12</div><div class="lbl">Trials Activos</div></div>
+          <div class="stat-box"><div class="val" style="color:var(--danger)">8</div><div class="lbl">Necesitan Follow-up</div></div>
+        </div>
+
+        <div class="section-header"><h2>Pipeline de Ventas</h2></div>
+        <div class="pipeline-grid">
+          <div class="pipeline-col"><h3>Nuevo</h3><div class="count">14</div>
+            <div class="lead-card"><div class="name">Carlos Electronics</div><div class="meta">ML • Hoy</div></div>
+            <div class="lead-card"><div class="name">TIENDA PRO MX</div><div class="meta">Amazon • Hoy</div></div>
+          </div>
+          <div class="pipeline-col"><h3>Contactado</h3><div class="count">8</div>
+            <div class="lead-card"><div class="name">Lupita Accesorios</div><div class="meta">WA enviado</div></div>
+            <div class="lead-card"><div class="name">Digital Store</div><div class="meta">Email enviado</div></div>
+          </div>
+          <div class="pipeline-col"><h3>Demo Agendada</h3><div class="count">4</div>
+            <div class="lead-card"><div class="name">MegaShop MX</div><div class="meta">Hoy 3pm</div></div>
+          </div>
+          <div class="pipeline-col"><h3>Demo Hecha</h3><div class="count">3</div>
+            <div class="lead-card"><div class="name">TechCenter</div><div class="meta">Ayer</div></div>
+          </div>
+          <div class="pipeline-col"><h3>Trial Activo</h3><div class="count">12</div>
+            <div class="lead-card"><div class="name">Marco Oficial</div><div class="meta">Dia 8/14</div></div>
+            <div class="lead-card"><div class="name">AudioPro</div><div class="meta">Dia 3/14</div></div>
+          </div>
+          <div class="pipeline-col"><h3>Cliente</h3><div class="count">5</div>
+            <div class="lead-card"><div class="name">ElectroMex</div><div class="meta">Pro • $499/mes</div></div>
+          </div>
+          <div class="pipeline-col"><h3>Churn</h3><div class="count">1</div>
+            <div class="lead-card"><div class="name">MiniStore</div><div class="meta">Hace 2 sem</div></div>
+          </div>
+        </div>
+
+        <div class="section-header"><h2>⚠️ Necesitan Follow-up</h2></div>
+        <div class="followup-alert"><div class="info"><strong>Lupita Accesorios</strong> — Sin respuesta en 3 dias. Contactada por WA.</div><button class="btn btn-sm btn-primary">Seguir</button></div>
+        <div class="followup-alert"><div class="info"><strong>Digital Store</strong> — Email enviado hace 4 dias sin respuesta.</div><button class="btn btn-sm btn-primary">Re-contactar</button></div>
+        <div class="followup-alert"><div class="info"><strong>Gadgets Premium</strong> — Demo agendada para ayer, no se presento.</div><button class="btn btn-sm btn-danger">Reprogramar</button></div>
+
+        <div class="section-header" style="margin-top:1.5rem"><h2>Tareas Pendientes</h2></div>
+        <div class="card" style="padding:1rem">
+          <div class="task-row"><span><span class="task-dot urgent"></span><strong>Demo MegaShop MX</strong></span><span style="color:var(--danger)">Hoy 3:00 PM</span></div>
+          <div class="task-row"><span><span class="task-dot normal"></span>Enviar reporte semanal a ElectroMex</span><span>Mañana</span></div>
+          <div class="task-row"><span><span class="task-dot normal"></span>Follow-up AudioPro — trial dia 3</span><span>Viernes</span></div>
+          <div class="task-row"><span><span class="task-dot normal"></span>Revisar leads nuevos de ML categoria Electronicos</span><span>Esta semana</span></div>
+          <div class="task-row"><span><span class="task-dot normal"></span>Onboarding TechCenter — dia 1</span><span>Manana</span></div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>
